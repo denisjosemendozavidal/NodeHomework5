@@ -11,6 +11,15 @@ const createMessage = async (obj) => {
     return data
 }
 
+const findMessage = async(id) => {
+    const data = await Messages.findOne({
+        where: {
+            id: id
+        }
+    })
+    return data
+}
+
 const deleteMessage = async (id) => {
     const data = await Messages.destroy({
         where: {
@@ -24,5 +33,6 @@ const deleteMessage = async (id) => {
 
 module.exports = {
     createMessage,
-    deleteMessage
+    deleteMessage,
+    findMessage
 }
