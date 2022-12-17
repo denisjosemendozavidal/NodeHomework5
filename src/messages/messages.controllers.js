@@ -12,7 +12,7 @@ const createMessage = async (obj) => {
 }
 
 const deleteMessage = async (id) => {
-    const data = await Conversations.destroy({
+    const data = await Messages.destroy({
         where: {
             id: id
         }
