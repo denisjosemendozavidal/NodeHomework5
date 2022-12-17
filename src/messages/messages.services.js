@@ -16,7 +16,23 @@ const postMessage = (req, res) => {
         })
 }
 
+const deleteMessage = (req, res) => {
+    const id = req.params.conversation_id
+    messageControllers.deleteMessage(id)
+        .then(data => {
+            if(data){
+                res.status(204).json()
+            } else {
+                res.status(404).json({message: 'Invalid ID'})
+            }
+        })
+        .catch(err => {
+            res.status(400).json({message: err.message})
+        }) 
+}
+
 
 module.exports = {
-    postMessage
+    postMessage,
+    deleteMessage
 }

@@ -11,8 +11,18 @@ const createMessage = async (obj) => {
     return data
 }
 
+const deleteMessage = async (id) => {
+    const data = await Conversations.destroy({
+        where: {
+            id: id
+        }
+    })
+    return data
+}
+
 
 
 module.exports = {
-    createMessage
+    createMessage,
+    deleteMessage
 }
